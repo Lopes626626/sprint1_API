@@ -28,9 +28,10 @@ public class OcorrenciaService {
 
     public Ocorrencia atualizar(Long id, Ocorrencia ocorrenciaAtualizada) {
         return repository.findById(id).map(ocorrencia -> {
-            ocorrencia.setTipoDefeito(ocorrenciaAtualizada.getTipoDefeito());
-            ocorrencia.setLinhaProducao(ocorrenciaAtualizada.getLinhaProducao());
+            ocorrencia.setNome(ocorrenciaAtualizada.getNome());
+            ocorrencia.setDescricao(ocorrenciaAtualizada.getDescricao());
             ocorrencia.setStatus(ocorrenciaAtualizada.getStatus());
+            ocorrencia.setData(ocorrenciaAtualizada.getData());
             return repository.save(ocorrencia);
         }).orElse(null);
     }
